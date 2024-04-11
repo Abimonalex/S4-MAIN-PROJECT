@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomato leaf Disease Detection</title>
+    <link href='https://fonts.googleapis.com/css?family=Grand Hotel' rel='stylesheet'>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url("../static/Images/indexpic.jpg"); /* Replace 'background_image.jpg' with your image file */
+            background-size: cover;
+            background-position: center;
+            font-family: 'Fantasy', sans-serif; /* Change the font family as desired */
+            color: #2df29d; /* Set text color to white */
+            text-align: center;
+            height: 100vh; /* Make sure the content takes up the full height of the viewport */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 600px; /* Limit container width to 600px */
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background color for better readability */
+            border-radius: 10px; /* Rounded corners for container */
+        }
+
+        h1 {
+            font-size: 36px; /* Increase font size of heading */
+            margin-bottom: 20px; /* Add some space below the heading */
+        }
+
+        button {
+            padding: 10px 20px; /* Add padding to the button */
+            font-size: 18px; /* Increase font size of button text */
+            background-color: #bba6c5; /* Green background color */
+            color: #0c0c0c; /* White text color */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Change cursor on hover */
+            transition: background-color 0.3s; /* Smooth transition on hover */
+        }
+
+        button:hover {
+            background-color: #eb340f; /* Darker green on hover */
+        }
+
+        input[type="file"] {
+            display: none; /* Hide the file input */
+        }
+
+        label {
+            display: inline-block;
+            margin-bottom: 10px;
+            cursor: pointer; /* Change cursor to pointer on hover */
+            padding: 10px 20px; /* Add padding to the label */
+            background-color: #3498db; /* Blue background color */
+            color: #fafafa; /* White text color */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s; /* Smooth transition on hover */
+        }
+
+        label:hover {
+            background-color: #ee1010; /* Darker blue on hover */
+        }
+
+        .arrow {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            font-size: 24px;
+            color: rgb(5, 1, 1);
+        }
+
+        .validation-prompt {
+            color: rgb(242, 240, 240);
+            margin-top: 5px;
+            display: none; /* Initially hide the prompt */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> <span style="font-family: 'Grand Hotel', cursive;"> Insert image to predict using GoogLeNet</span></h1>
+        <!-- Option to upload image -->
+        <form id="imageForm" action="/predict_googlenet" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+            <input type="file" id="fileInput" name="image" accept="image/*" onchange="previewImage(event)">
+            <label for="fileInput">Upload Image</label>
+            <br>
+            <img id="preview" style="max-width: 300px; max-height: 300px; margin-top: 10px; display: none;">
+            <br>
+            <button type="submit">Detect</button>
+            <div class="validation-prompt" id="validationPrompt">Please upload an image !</div>
+        </form>
+    </div>
+
+    <script>
+        function previewImage(event) {
+            var preview = document.getElementById('preview');
+            preview.style.display = 'block';
+            preview.src = URL.createObjectURL(event.target.files[0]);
+        }
+
+        function validateForm() {
+            var fileInput = document.getElementById('fileInput');
+            var validationPrompt = document.getElementById('validationPrompt');
+            if (fileInput.files.length === 0) {
+                validationPrompt.style.display = 'block';
+                return false; // Prevent form submission
+            } else {
+                validationPrompt.style.display = 'none';
+                return true; // Allow form submission
+            }
+        }
+    </script>
+</body>
+</html>

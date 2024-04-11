@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Tomato leaf Disease Detection</title>
+    <link href='https://fonts.googleapis.com/css?family=New Rocker' rel='stylesheet'>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('../static/Images/homepic.jpg'); /* Replace 'homepic.jpg' with your image file */
+            background-size: cover;
+            background-position: center;
+            font-family: 'Fantasy', sans-serif; /* Change the font family as desired */
+            color: #ffffff; /* Set text color to white */
+            text-align: center;
+            height: 100vh; /* Make sure the content takes up the full height of the viewport */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 600px; /* Limit container width to 600px */
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background color for better readability */
+            border-radius: 10px; /* Rounded corners for container */
+        }
+
+        h1 {
+            font-size: 36px; /* Increase font size of heading */
+            margin-bottom: 20px; /* Add some space below the heading */
+        }
+
+        button {
+            padding: 10px 20px; /* Add padding to the button */
+            font-size: 18px; /* Increase font size of button text */
+            background-color: #0ef393; /* Green background color */
+            color: #0c0c0c; /* White text color */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Change cursor on hover */
+            transition: background-color 0.3s; /* Smooth transition on hover */
+            margin: 10px; /* Add margin between buttons */
+        }
+
+        button:hover {
+            background-color: #eb340f; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> <span style="font-family: 'New Rocker', cursive;">  WELCOME TO TOMATO LEAF DISEASE DETECTION</span></h1>
+        <h3> <span style="font-family: 'Arial', cursive;"> Select a model to continue</span></h3>
+        <!-- Pass model name as argument to redirectToDetectionPage function -->
+        <button onclick="redirectToDetectionPage('indexalex.html')">AlexNet</button>
+        <button onclick="redirectToDetectionPage('indexvgg.html')">VGG16</button>
+        <button onclick="redirectToDetectionPage('indexgoogle.html')">GoogLeNet</button>
+        <button onclick="redirectToDetectionPage('indexall.html')">Comparison</button>
+
+    </div>
+
+    <script>
+        // Modified redirectToDetectionPage function to redirect to different index pages based on model name
+        function redirectToDetectionPage(indexPage) {
+            window.location.href = "/" + indexPage;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Tomato Leaf</title>
+    <link href='https://fonts.googleapis.com/css?family=New Rocker' rel='stylesheet'>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+  body {
+            margin: 0;
+            padding: 0;
+            background-image: url('../static/Images/healthypic.jpg'); /* Replace 'healthypic.jpg' with your image file */
+            background-size: cover;
+            background-position: center;
+            font-family: 'Fantasy', sans-serif; /* Change the font family as desired */
+            color: #ffffff; /* Set text color to white */
+            text-align: center;
+            height: 100vh; /* Make sure the content takes up the full height of the viewport */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 600px; /* Limit container width to 600px */
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background color for better readability */
+            border-radius: 10px; /* Rounded corners for container */
+        }
+
+        h1 {
+            font-size: 36px; /* Increase font size of heading */
+            margin-bottom: 20px; /* Add some space below the heading */
+        }
+
+
+        /* Your CSS styles here */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Healthy Tomato Leaf Detected</h1>
+        <p>Predicted Class: {{ predicted_class }}</p>
+        <p>Confidence: {{ confidence }}%</p>
+        <button onclick="redirectToHome()" class="back-button">Back to Home</button>
+    </div>
+
+    <script>
+        function redirectToHome() {
+            window.location.href = "/";
+        }
+    </script>
+</body>
+</html>

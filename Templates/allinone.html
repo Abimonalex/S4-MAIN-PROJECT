@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseased Tomato Leaf</title>
+    <link href='https://fonts.googleapis.com/css?family=New Rocker' rel='stylesheet'>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('../static/Images/finalpic.jpg'); /* Replace 'diseasedpic.jpg' with your image file */
+            background-size: cover;
+            background-position: center;
+            font-family: 'Fantasy', sans-serif; /* Change the font family as desired */
+            color: #ffffff; /* Set text color to white */
+            text-align: center;
+            height: 100vh; /* Make sure the content takes up the full height of the viewport */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+    max-width: 600px; /* Limit container width to 600px */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background color for better readability */
+    border-radius: 10px; /* Rounded corners for container */
+    display: flex;
+    flex-direction: row; /* Align items horizontally */
+    justify-content: center; /* Center align horizontally */
+    align-items: center;
+    margin-left: 250px; /* Adjust the margin-left value as needed */
+}
+
+        .prediction-box {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background color for prediction boxes */
+            border-radius: 5px; /* Rounded corners for prediction boxes */
+            width: 300px; /* Adjust width as needed */
+            text-align: left; /* Align text to the left */
+        }
+
+        .prediction-box h2 {
+            margin-top: 0;
+        }
+
+        h1 {
+            font-size: 36px; /* Increase font size of heading */
+            margin-bottom: 20px; /* Add some space below the heading */
+        }
+        button {
+    position: fixed;
+    bottom: 20px;
+    margin-bottom: 210px;
+    margin-left: 225px;
+}
+
+
+        /* Your CSS styles here */
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+
+        <div class="prediction-box">
+            <h2>AlexNet Prediction</h2>
+            <p>Predicted Class: {{ alexnet_predicted_class }}</p>
+            <p>Confidence: {{ alexnet_confidence }}%</p>
+        </div>
+
+        <div class="prediction-box">
+            <h2>VGG16 Prediction</h2>
+            <p>Predicted Class: {{ vgg16_predicted_class }}</p>
+            <p>Confidence: {{ vgg16_confidence }}%</p>
+        </div>
+
+        <div class="prediction-box">
+            <h2>GoogLeNet Prediction</h2>
+            <p>Predicted Class: {{ googlenet_predicted_class }}</p>
+            <p>Confidence: {{ googlenet_confidence }}%</p>
+        </div>
+
+    <!--    <button onclick="redirectToHome()">Back to Home</button>             -->
+    </div>
+    <button onclick="redirectToHome()">Back to Home</button>
+    <script>
+        function redirectToHome() {
+            window.location.href = "/";
+        }
+    </script>
+</body>
+</html>
